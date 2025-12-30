@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { 
   AppraisalReport, 
   AppraisalResult, 
@@ -188,7 +188,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 5. 鑑定附註 */}
+        {/* 5. 鑑定師簽署 (原附註內) */}
         <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light">
           <SectionTitle icon="description">鑑定附註</SectionTitle>
           <div className="text-sm text-gray-600 leading-relaxed bg-primary/[0.03] p-5 rounded-2xl border border-primary/10 italic">
@@ -216,25 +216,33 @@ export default function App() {
           </div>
         </section>
 
-        {/* 免責聲明 */}
-        <footer className="px-6 py-8 text-center space-y-6">
-           <div className="text-[10px] text-gray-400 leading-relaxed max-w-[280px] mx-auto space-y-2">
-              <p>1. 本報告僅代表本中心在檢測當下之技術評估，不代表市場估價。</p>
-              <p>2. 鑑定結果僅對檢測物件本身負責，二次拆解或人為破壞後報告即失效。</p>
-           </div>
-           
+        {/* 6. 免責條款 (新) */}
+        <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light">
+          <SectionTitle icon="gavel">免責條款</SectionTitle>
+          <div className="text-xs text-gray-500 leading-loose space-y-3">
+            <p>
+              本報告僅反映手錶於檢查當時之狀態及真偽意見，並非法律承諾或保證。若因技術限制、後續人為改裝或零件替換所致之差異，本公司概不負責。
+            </p>
+            <p className="pt-2 border-t border-gray-50">
+              詳細責任限制與鑑定範圍請參閱完整 <a href="#" className="text-primary font-bold underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-all">免責條款</a>。
+            </p>
+          </div>
+        </section>
+
+        {/* 頁尾動作按鈕 */}
+        <footer className="px-6 py-8 text-center space-y-8">
            <div className="flex justify-center space-x-4">
              <button className="flex flex-col items-center group">
                <div className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:border-primary transition-all shadow-sm">
                  <span className="material-icons-round text-xl">share</span>
                </div>
-               <span className="text-[9px] mt-2 text-gray-400 font-bold uppercase">Share</span>
+               <span className="text-[9px] mt-2 text-gray-400 font-bold uppercase">分享分享</span>
              </button>
              <button className="flex flex-col items-center group">
                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white transition-all shadow-lg group-hover:scale-105">
                  <span className="material-icons-round text-xl">file_download</span>
                </div>
-               <span className="text-[9px] mt-2 text-primary font-bold uppercase">Download</span>
+               <span className="text-[9px] mt-2 text-primary font-bold uppercase">下載報告</span>
              </button>
            </div>
 
