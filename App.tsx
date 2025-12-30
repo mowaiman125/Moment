@@ -35,7 +35,7 @@ const MOCK_REPORT: AppraisalReport = {
   notes: '經精密鑑定，此腕錶所有外觀零件及機芯均符合原廠工藝標準。錶殼及錶扣有極輕微使用痕跡，整體品相優異，功能運作正常。',
   tags: ['極佳品相', '全套原裝'],
   photos: {
-    front: 'https://images.unsplash.com/photo-1547996160-81dfa63595dd?auto=format&fit=crop&q=80&w=800',
+    front: 'https://imagefile2.aristohk.com/ROLEX-126500LN-0002-1726208478667-1.webp',
     back: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&q=80&w=800',
     buckle: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&q=80&w=800',
     card: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&q=80&w=800',
@@ -45,7 +45,19 @@ const MOCK_REPORT: AppraisalReport = {
   },
 };
 
-const LOGO_URL = 'https://generativelanguage.googleapis.com/v1beta/files/sc87z82u02h0';
+const LOGO_URL = 'https://agwatchrepair.com.hk/wp-content/uploads/2025/12/AG-LOGO_NEW.png';
+
+const AuthenticStamp = () => (
+  <div className="absolute -top-3 -right-3 z-20 pointer-events-none opacity-60 transform rotate-12 scale-75 sm:scale-90">
+    <div className="border-[4px] border-green-500 rounded-full w-28 h-28 flex items-center justify-center flex-col p-1 bg-white/20 backdrop-blur-[1px]">
+      <div className="border-[1.5px] border-green-500 rounded-full w-full h-full flex items-center justify-center flex-col">
+        <span className="text-green-600 font-black text-xl tracking-tighter uppercase leading-none">Authentic</span>
+        <div className="h-[1.5px] w-2/3 bg-green-500 my-1"></div>
+        <span className="text-green-600 font-bold text-[7px] tracking-[0.2em] uppercase">AG Appraisal</span>
+      </div>
+    </div>
+  </div>
+);
 
 export default function App() {
   const [report] = useState<AppraisalReport>(MOCK_REPORT);
@@ -86,15 +98,15 @@ export default function App() {
       <div className="watermark">AG APPRAISAL</div>
 
       {/* 頂部導航與 Logo */}
-      <header className="bg-white pt-6 pb-4 px-4 flex flex-col items-center border-b border-border-light shadow-sm sticky top-0 z-50">
-        <img src={LOGO_URL} alt="AG Logo" className="h-12 object-contain mb-2" />
-        <p className="text-[9px] tracking-[0.3em] text-primary font-bold opacity-70 uppercase">Authenticity Guaranteed</p>
+      <header className="bg-white pt-6 pb-5 px-4 flex flex-col items-center border-b border-border-light shadow-sm sticky top-0 z-50">
+        <img src={LOGO_URL} alt="AG Logo" className="h-12 object-contain mb-3" />
+        <p className="text-[15px] tracking-[0.4em] text-primary font-black drop-shadow-sm">手錶鑒定報告</p>
       </header>
 
       <main className="max-w-md mx-auto px-4 mt-6 space-y-6 relative z-10">
         
         {/* 手錶高級藝廊展示 */}
-        <section className="bg-white rounded-[2rem] overflow-hidden report-card border border-border-light">
+        <section className="bg-white rounded-[2rem] overflow-hidden report-card border border-border-light relative">
           {/* 主圖展示區 */}
           <div className="aspect-square w-full relative bg-gray-100 overflow-hidden group">
             <img 
@@ -103,10 +115,10 @@ export default function App() {
               alt="Watch Detail" 
               className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-500"
             />
-            <div className="absolute top-4 right-4 bg-primary/80 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-lg">
+            <div className="absolute top-4 right-4 bg-primary/80 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-lg z-30">
               鑑定編號: #20240325-001
             </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase z-30">
               {allPhotos[activePhotoIndex]?.label}
             </div>
           </div>
@@ -132,7 +144,7 @@ export default function App() {
         </section>
 
         {/* 1. 基本資料 */}
-        <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light">
+        <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light relative">
           <SectionTitle icon="info">基本資料</SectionTitle>
           <div className="space-y-4">
             <div className="border-l-4 border-primary pl-4">
@@ -153,7 +165,10 @@ export default function App() {
         </section>
 
         {/* 2. 核心鑑定結果 */}
-        <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light">
+        <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light relative">
+          {/* 鑑定合格印章 */}
+          <AuthenticStamp />
+          
           <SectionTitle icon="verified">核心鑑定結果</SectionTitle>
           <div className="space-y-1">
             <StatusItem label="整體手錶鑑定" status={report.overallResult} />
@@ -194,19 +209,12 @@ export default function App() {
           <div className="text-sm text-gray-600 leading-relaxed bg-primary/[0.03] p-5 rounded-2xl border border-primary/10 italic">
             "{report.notes}"
           </div>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {report.tags.map(tag => (
-              <span key={tag} className="text-[10px] px-3 py-1 bg-white border border-gray-200 text-gray-500 rounded-full font-bold shadow-sm">
-                #{tag}
-              </span>
-            ))}
-          </div>
 
           {/* 簽名與日期區 */}
           <div className="mt-10 pt-8 border-t border-gray-100 flex justify-between items-end">
             <div className="space-y-1">
               <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">鑑定師 Appraiser</p>
-              <p className="text-2xl font-signature text-primary">David Chen</p>
+              <p className="text-2xl font-signature text-primary">Nic Chan</p>
               <p className="text-[10px] text-primary/60 font-bold uppercase">Senior Horologist</p>
             </div>
             <div className="text-right">
@@ -216,7 +224,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* 6. 免責條款 (新) */}
+        {/* 6. 免責條款 */}
         <section className="bg-white rounded-[1.5rem] p-6 report-card border border-border-light">
           <SectionTitle icon="gavel">免責條款</SectionTitle>
           <div className="text-xs text-gray-500 leading-loose space-y-3">
@@ -230,13 +238,13 @@ export default function App() {
         </section>
 
         {/* 頁尾動作按鈕 */}
-        <footer className="px-6 py-8 text-center space-y-8">
+        <footer className="px-6 py-8 text-center space-y-6">
            <div className="flex justify-center space-x-4">
              <button className="flex flex-col items-center group">
                <div className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:border-primary transition-all shadow-sm">
                  <span className="material-icons-round text-xl">share</span>
                </div>
-               <span className="text-[9px] mt-2 text-gray-400 font-bold uppercase">分享分享</span>
+               <span className="text-[9px] mt-2 text-gray-400 font-bold uppercase">分享報告</span>
              </button>
              <button className="flex flex-col items-center group">
                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white transition-all shadow-lg group-hover:scale-105">
@@ -246,8 +254,20 @@ export default function App() {
              </button>
            </div>
 
+           {/* 地址及聯絡資訊 */}
+           <div className="space-y-1.5 py-4 border-t border-gray-100/50">
+             <p className="text-[11px] text-gray-500 flex items-center justify-center font-medium">
+               <span className="material-icons-round text-[14px] mr-1.5 text-primary/40">location_on</span>
+               尖沙咀寶勒巷3號萬事昌廣場20樓10室
+             </p>
+             <p className="text-[11px] text-gray-500 flex items-center justify-center font-bold">
+               <span className="material-icons-round text-[14px] mr-1.5 text-primary/40">phone</span>
+               <a href="tel:+85253032636" className="text-primary hover:underline">+852 5303 2636</a>
+             </p>
+           </div>
+
            <p className="text-[9px] text-gray-300 font-bold tracking-widest uppercase">
-             © 2024 AG INTERNATIONAL LUXURY APPRAISAL CENTER
+             © 2025 AG INTERNATIONAL LUXURY APPRAISAL CENTER
            </p>
         </footer>
       </main>
