@@ -213,12 +213,12 @@ export default function App() {
           {/* 簽名與日期區 */}
           <div className="mt-10 pt-8 border-t border-gray-100 flex justify-between items-end">
             <div className="space-y-1">
-              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">鑑定師 Appraiser</p>
+              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">鑑定師</p>
               <p className="text-2xl font-signature text-primary">Nic Chan</p>
-              <p className="text-[10px] text-primary/60 font-bold uppercase">Senior Horologist</p>
+              <p className="text-[10px] text-primary/60 font-bold uppercase">高級製錶師</p>
             </div>
             <div className="text-right">
-              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">發佈日期 Issued</p>
+              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">發佈日期</p>
               <p className="text-xs font-bold text-gray-800">2024年03月25日</p>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function App() {
         </section>
 
         {/* 頁尾動作按鈕 */}
-        <footer className="px-6 py-8 text-center space-y-6">
+        <footer className="px-6 py-8 text-center space-y-8">
            <div className="flex justify-center space-x-4">
              <button className="flex flex-col items-center group">
                <div className="w-12 h-12 rounded-full bg-white border border-gray-100 flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:border-primary transition-all shadow-sm">
@@ -252,18 +252,6 @@ export default function App() {
                </div>
                <span className="text-[9px] mt-2 text-primary font-bold uppercase">下載報告</span>
              </button>
-           </div>
-
-           {/* 地址及聯絡資訊 */}
-           <div className="space-y-1.5 py-4 border-t border-gray-100/50">
-             <p className="text-[11px] text-gray-500 flex items-center justify-center font-medium">
-               <span className="material-icons-round text-[14px] mr-1.5 text-primary/40">location_on</span>
-               尖沙咀寶勒巷3號萬事昌廣場20樓10室
-             </p>
-             <p className="text-[11px] text-gray-500 flex items-center justify-center font-bold">
-               <span className="material-icons-round text-[14px] mr-1.5 text-primary/40">phone</span>
-               <a href="tel:+85253032636" className="text-primary hover:underline">+852 5303 2636</a>
-             </p>
            </div>
 
            <p className="text-[9px] text-gray-300 font-bold tracking-widest uppercase">
