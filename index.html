@@ -36,27 +36,27 @@
             color: #2D3748;
         }
         .report-card {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
         }
-        .status-pill {
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        .status-ok { background-color: #E6FFFA; color: #047481; }
-        .status-warning { background-color: #FFFBEB; color: #92400E; }
         .watermark {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-30deg);
             font-size: 8rem;
-            opacity: 0.03;
+            opacity: 0.02;
             pointer-events: none;
             font-weight: bold;
             z-index: 0;
             white-space: nowrap;
+            color: #133E6B;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 <script type="importmap">
