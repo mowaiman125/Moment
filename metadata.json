@@ -1,0 +1,7 @@
+{
+  "name": "Luxury Watch Appraisal Tool",
+  "description": "A professional tool for luxury watch appraisers to record condition reports, appraisal conclusions, and performance metrics, featuring AI-powered summary generation.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

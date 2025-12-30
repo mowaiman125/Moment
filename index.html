@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>鑑定報告 - AG 國際奢侈品鑑定中心</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#133E6B", // 匹配 Logo 的深藍色
+                        "background-light": "#F8F9FA",
+                        "surface-light": "#FFFFFF",
+                        "border-light": "#E9ECEF",
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', "sans-serif"],
+                        signature: ['"Dancing Script"', "cursive"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F8F9FA;
+            color: #2D3748;
+        }
+        .report-card {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .status-pill {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .status-ok { background-color: #E6FFFA; color: #047481; }
+        .status-warning { background-color: #FFFBEB; color: #92400E; }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 8rem;
+            opacity: 0.03;
+            pointer-events: none;
+            font-weight: bold;
+            z-index: 0;
+            white-space: nowrap;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
