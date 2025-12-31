@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -57,6 +58,17 @@
         .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
+        }
+
+        /* PDF 模式：當 body 擁有 pdf-rendering 類別時隱藏指定元素 */
+        .pdf-rendering .no-print {
+            display: none !important;
+        }
+        
+        /* 確保在 PDF 中背景為純白且佈局整潔 */
+        .pdf-rendering #report-download-area {
+            background-color: white !important;
+            padding: 0 !important;
         }
     </style>
 <script type="importmap">
